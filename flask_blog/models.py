@@ -63,3 +63,4 @@ class Post(db.Model):
         db.ForeignKey('user.id'),
         nullable=False
     )
+
