@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="main_content">
+    <h2>Сброс пароля</h2>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="form_settings">
+            <p>
+                <span>{{ form.email.label }}</span>
+                {% if form.email.errors %}
+                {{ form.email }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email }}
+                {% endif %}
+            </p>
+            <p style="padding-top: 15px"><span>&nbsp;</span>
+                {{ form.submit(class="submit") }}</p>
+        </div>
+    </form>
+</div>
+{% endblock content %}

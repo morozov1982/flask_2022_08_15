@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="main_content">
+    <h2>Сброс пароля</h2>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="form_settings">
+            <p>
+                <span>{{ form.password.label }}</span>
+                {% if form.password.errors %}
+                {{ form.password }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.password }}
+                {% endif %}
+            </p>
+            <p>
+                <span>{{ form.confirm_password.label }}</span>
+                {% if form.confirm_password.errors %}
+                {{ form.confirm_password }}
+                    <div class="invalid-feedback">
+                        {% for error in form.confirm_password.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.confirm_password }}
+                {% endif %}
+            </p>
+            <p style="padding-top: 15px"><span>&nbsp;</span>
+                {{ form.submit(class="submit") }}</p>
+        </div>
+    </form>
+</div>
+{% endblock content %}
