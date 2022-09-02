@@ -4,12 +4,12 @@
 <div id="main_content">
     {% for post in posts.items %}
     <article style="display: flex; flex-direction: column;">
-        <img style="margin-right: 5px;"
+        <img style="margin-right: 5px;" class="avatar"
              src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
         <a href="{{ url_for('users.user_posts', username=post.author.username) }}" id="author">
             {{ post.author.username }}</a>
 
-        <div class="card" style="margin-bottom: 20px; margin-top: 20px;">
+        <div class="card">
             <h2>
                 <a href="{{ url_for('posts.post', post_id=post.id) }}">
                     {{ post.title}}

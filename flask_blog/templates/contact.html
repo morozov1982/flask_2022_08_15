@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-      <div id="main_content">
-        <h1>Контакты</h1>
-        <p>Вы&nbsp;можете воспользоваться формой ниже, чтобы у&nbsp;вас появилось ощущение, что&nbsp;вы&nbsp;нам пишите, но&nbsp;она не&nbsp;работает:</p>
-          <div class="form_settings">
-            <p><span>Имя</span><input class="contact" type="text" name="name" value=""></p>
-            <p><span>Email</span><input class="contact" type="text" name="email" value=""></p>
-            <p><span>Сообщение</span><textarea class="contact textarea" rows="8" cols="50" name="enquiry"></textarea></p>
-            <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="Отправить"></p>
-          </div>       
-        <p><br><br>Пожалуйста введите корректный e-mail.</p>
-      </div>
+<div id="main_content">
+    <h1>Контакты</h1>
+    <p>Вы&nbsp;можете воспользоваться формой ниже, чтобы у&nbsp;вас появилось ощущение, что&nbsp;вы&nbsp;нам пишите, но&nbsp;она
+        не&nbsp;работает:</p>
+    <div class="form_settings">
+        <p><span>Имя</span><input class="contact" type="text" name="name" value=""></p>
+        <p><span>Email</span><input class="contact" type="text" name="email" value=""></p>
+        <p><span>Сообщение</span><textarea class="contact textarea" rows="8" cols="50" name="enquiry"></textarea></p>
+        <p style="padding-top: 15px"><span>&nbsp;</span>
+            <input class="submit" type="submit" name="contact_submitted" value="Отправить"></p>
+    </div>
+    <p><br><br>Пожалуйста введите корректный e-mail.</p>
+</div>
 {% endblock content %}

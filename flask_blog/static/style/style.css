@@ -96,6 +96,10 @@ ol li {
     margin: 0 0 11px 0;
 }
 
+textarea {
+    min-height: 120px;
+}
+
 .left {
     float: left;
     width: auto;
@@ -122,12 +126,12 @@ ol li {
 #header {
     background: #000;
     border-bottom: 1px solid #3d3d3d;
-    height: 192px; /* 186px; */
+    /* height: 192px; */ /* 186px; */
 }
 
 #banner {
     background: transparent url(../img/banner.jpg) no-repeat;
-    width: 860px;
+    /*width: 860px;*/
     height: 180px;
     margin-bottom: 20px;
     border: 10px solid #DDD;
@@ -180,6 +184,7 @@ ol li {
     padding-right: 8px;
     background: #2D2D2D;
     border-top: 1px solid #3D3D3D;
+    box-sizing: content-box;
 }
 
 ul#menu {
@@ -204,6 +209,7 @@ ul#menu li a {
     color: #FFF;
     text-decoration: none;
     background: #5E4238;
+    box-sizing: content-box;
 }
 
 ul#menu li.selected a {
@@ -259,7 +265,7 @@ ul#menu li a:hover {
 .sidebar_item {
     background: url(../img/side_back.png) repeat-y;
     padding: 0 15px;
-    width: 192px;
+    /*width: 192px;*/
 }
 
 .sidebar li a.selected {
@@ -293,7 +299,7 @@ ul#menu li a:hover {
     width: 100%;
     font-family: 'trebuchet ms', sans-serif;
     font-size: 100%;
-    height: 80px;
+    /*height: 80px;*/
     padding: 28px 0 5px 0;
     text-align: center;
     background: #000;
@@ -347,7 +353,7 @@ ul#menu li a:hover {
     color: #47433F;
 }
 
-.form_settings .submit {
+.form_settings .submit, .submit {
     font: 100% arial;
     border: 0;
     width: auto; /* 99px;*/
@@ -399,4 +405,48 @@ table tr td {
     background: #E5E5DB;
     color: #47433F;
     border-top: 1px solid #FFF;
+}
+
+.avatar {
+    max-width: 50px;
+}
+
+.avatar-big {
+    max-width: 200px;
+}
+
+.card {
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px dashed #ccc;
+}
+
+.card-footer {
+    display: flex;
+    border: none;
+}
+
+.card-footer .button {
+    text-decoration: none;
+    font: 100% arial;
+    border: 0;
+    padding: 11px 15px 10px;
+    cursor: pointer;
+    background: #3B3B3B;
+    color: #FFF;
+    text-align: center;
+    margin-right: 10px;
+    line-height: 1em;
+}
+
+.card-footer .del {
+    background: #6d0000;
+}
+
+.sidebar_item p {
+    margin-bottom: 0;
+}
+
+.fa {
+    margin-right: 5px;
 }

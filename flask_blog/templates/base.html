@@ -10,6 +10,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/style.css') }}">
 </head>
 
@@ -18,22 +22,35 @@
     <div id="header">
         <div id="logo">
             <div id="logo_text">
-                <h1><a href="/">Flask<span class="logo_colour">учебный блог</span></a></h1>
+                <h1><a href="{{ url_for('main.home') }}">Flask<span class="logo_colour">учебный блог</span></a></h1>
                 <h2>Шаблог позаимствован и используется без комерческих целей</h2>
             </div>
         </div>
         <div id="menubar">
             <ul id="menu">
-                <li class="selected"><a href="/">Главная</a></li>
-                <li><a href="/contacts">Контакты</a></li>
                 {% if current_user.is_authenticated %}
-                    <li><a href="{{ url_for('posts.allpost') }}"><i class="fa fa-th"></i> Статьи</a></li>
-                    <li><a href="{{ url_for('users.user_posts', username=current_user.username) }}"> Статьи {{ current_user.username }}</a></li>                <li><a href="{{ url_for('posts.new_post') }}"><i class="fa fa-plus"></i> Создать статью</a></li>
-                    <li><a href="{{ url_for('users.account') }}"><i class="fa fa-user"></i>Профиль</a></li>
-                    <li><a href="{{ url_for('users.logout') }}"><i class="fa fa-sign-out"></i>Выйти</a></li>
+                    <li {% if request.endpoint=="posts.allpost" %} class="selected" {% endif %}>
+                        <a href="{{ url_for('posts.allpost') }}">
+                            <i class="fa fa-file"></i> Статьи</a></li>
+                    <li {% if request.endpoint=="users.user_posts" %} class="selected" {% endif %}>
+                        <a href="{{ url_for('users.user_posts', username=current_user.username) }}">
+                            <i class="fa fa-folder"></i> Статьи {{ current_user.username }}</a></li>
+                    <li {% if request.endpoint=="posts.new_post" %} class="selected" {% endif %}>
+                        <a href="{{ url_for('posts.new_post') }}">
+                            <i class="fa fa-plus"></i> Создать статью</a></li>
+                    <li {% if request.endpoint=="users.account" %} class="selected" {% endif %}>
+                        <a href="{{ url_for('users.account') }}">
+                            <i class="fa fa-user"></i> Профиль</a></li>
+                    <li {% if request.endpoint=="users.logout" %} class="selected" {% endif %}>
+                        <a href="{{ url_for('users.logout') }}">
+                            <i class="fa fa-sign-out"></i> Выйти</a></li>
                 {% else %}
-                    <li><a href="{{ url_for('users.login') }}">Войти</a></li>
-                    <li><a href="{{ url_for('users.register') }}">Зарегистрироваться</a></li>
+                    <li {% if request.endpoint=="users.login" %} class="selected" {% endif %}>
+                        <a href="{{ url_for('users.login') }}">
+                            <i class="fa fa-sign-in"></i> Войти</a></li>
+                    <li {% if request.endpoint=="users.register" %} class="selected" {% endif %}>
+                        ><a href="{{ url_for('users.register') }}">
+                        <i class="fa fa-user-plus"></i> Зарегистрироваться</a></li>
                 {% endif %}
             </ul>
         </div>
@@ -73,9 +90,20 @@
     </div>
     <div id="content_footer"></div>
     <div id="footer">
-        <p><a href="/">Главная</a> | <a href="/contacts">Контакты</a></p>
+        <p><a href="{{ url_for('main.home') }}">Главная</a> | <a href="{{ url_for('main.contacts') }}">Контакты</a></p>
         <p>Copyright &copy; Bober Inc.</p>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>
