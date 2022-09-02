@@ -1,9 +1,13 @@
-from config_vars import KEY, USERNAME, PASSWORD, YA_USERNAME, YA_PASSWORD
+from os import environ
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 
 class Config:
     SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
-    SECRET_KEY = KEY
+    SECRET_KEY = environ.get('KEY')
 
     # gmail config
     # MAIL_SERVER = 'smtp.googlemail.com'
@@ -16,5 +20,5 @@ class Config:
     MAIL_PORT = 465
     MAIL_USE_TLS = False
     MAIL_USE_SSL = True
-    MAIL_USERNAME = YA_USERNAME
-    MAIL_PASSWORD = YA_PASSWORD
+    MAIL_USERNAME = environ.get('YA_USERNAME')
+    MAIL_PASSWORD = environ.get('YA_PASSWORD')
