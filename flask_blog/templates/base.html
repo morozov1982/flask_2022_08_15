@@ -434,6 +434,13 @@
             <ul id="menu">
                 <li class="selected"><a href="/">Главная</a></li>
                 <li><a href="/contacts">Контакты</a></li>
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{url_for('users.account')}}"><i class="fa fa-user"></i>Профиль</a></li>
+                    <li><a href="{{url_for('users.logout')}}"><i class="fa fa-sign-out"></i>Выйти</a></li>
+                {% else %}
+                    <li><a href="{{url_for('users.login')}}">Войти</a></li>
+                    <li><a href="{{url_for('users.register')}}">Зарегистрироваться</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
