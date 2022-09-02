@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="main_content">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <h1>{{ legend }}</h1>
+        <div class="form_settings">
+            <p>
+                <span>{{ form.title.label }}</span>
+                {% if form.title.errors %}
+                {{ form.title }}
+                    <div class="invalid-feedback">
+                        {% for error in form.title.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.title }}
+                {% endif %}
+            </p>
+            <p>
+                <span>{{ form.content.label }}</span>
+                {% if form.content.errors %}
+                {{ form.content }}
+                    <div class="invalid-feedback">
+                        {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.content }}
+                {% endif %}
+            </p>
+            <p style="padding-top: 15px"><span>&nbsp;</span>{{ form.submit(class="submit") }}</p>
+        </div>
+    </form>
+</div>
+{% endblock content %}
