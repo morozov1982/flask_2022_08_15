@@ -37,7 +37,10 @@
                 {{ form.remember(class="checkbox") }}
             </p>
 
-            <p style="padding-top: 15px"><span>&nbsp;</span>{{ form.submit(class="submit") }}</p>
+            <p style="padding-top: 15px"><span>&nbsp;</span>
+                {{ form.submit(class="submit") }}
+                <a href="{{ url_for('users.reset_request') }}" style="margin-left: 10px;">Забыли пароль?</a>
+            </p>
         </div>
     </form>
 </div>

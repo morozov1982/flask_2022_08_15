@@ -130,3 +130,4 @@ dmypy.json
 
 .idea/
 /flask_blog/site.db
+/flask_blog/config_vars.py
