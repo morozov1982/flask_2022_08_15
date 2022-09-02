@@ -13,7 +13,7 @@
         <p class="card-text">{{ post.content }}</p>
         {% if post.author == current_user %}
             <div class="card-footer" style="font-size: 20px; background: #5E4238; color: #FFF; padding: 20px;">
-                <a href="{{url_for('posts.update_post', post_id=post.id) }}">Обновить</a>
+                <a href="{{ url_for('posts.update_post', post_id=post.id) }}">Обновить</a>
                 <button type="button" data-toggle="modal"data-target="#deleteModal">Удалить</button>
             </div>
         {% endif %}

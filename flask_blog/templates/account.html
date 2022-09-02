@@ -2,7 +2,7 @@
 
 {% block content %}
 <div id="main_content">
-    <img style="border-radius: 50%;" src="{{ image_file }}">
+    <img style="border-radius: 50%;" src="{{ url_for('static', filename='profile_pics/' + current_user.image_file) }}">
     <h2>{{ current_user.username }} ({{ current_user.email }})</h2>
 
     <form method="POST" action="" enctype="multipart/form-data">
