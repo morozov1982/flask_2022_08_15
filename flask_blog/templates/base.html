@@ -286,18 +286,18 @@
             margin: 0;
         }
 
-        #content {
+        #main_content {
             text-align: left;
             width: 620px;
             padding: 0 0 0 5px;
             float: right;
         }
 
-        #content ul {
+        #main_content ul {
             margin: 2px 0 22px 0px;
         }
 
-        #content ul li, .sidebar ul li {
+        #main_content ul li, .sidebar ul li {
             list-style-type: none;
             background: url(img/bullet.png) no-repeat;
             margin: 0 0 0 0;
@@ -426,7 +426,7 @@
     <div id="header">
         <div id="logo">
             <div id="logo_text">
-                <h1><a href="index.html">Flask<span class="logo_colour">учебный блог</span></a></h1>
+                <h1><a href="/">Flask<span class="logo_colour">учебный блог</span></a></h1>
                 <h2>Шаблог позаимствован и используется без комерческих целей</h2>
             </div>
         </div>
@@ -436,8 +436,7 @@
                 <li><a href="/contacts">Контакты</a></li>
                 {% if current_user.is_authenticated %}
                     <li><a href="{{ url_for('posts.allpost') }}"><i class="fa fa-th"></i> Статьи</a></li>
-                    <li><a href="{{ url_for('posts.new_post') }}"><i class="fa fa-plus"></i> Создать статью</a></li>
-                    <li><a href="{{ url_for('users.user_posts', username=current_user.username) }}">{{ current_user.username }}</a></li>
+                    <li><a href="{{ url_for('users.user_posts', username=current_user.username) }}"> Статьи {{ current_user.username }}</a></li>                <li><a href="{{ url_for('posts.new_post') }}"><i class="fa fa-plus"></i> Создать статью</a></li>
                     <li><a href="{{ url_for('users.account') }}"><i class="fa fa-user"></i>Профиль</a></li>
                     <li><a href="{{ url_for('users.logout') }}"><i class="fa fa-sign-out"></i>Выйти</a></li>
                 {% else %}
